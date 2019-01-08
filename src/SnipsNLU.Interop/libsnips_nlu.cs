@@ -389,10 +389,10 @@ namespace SnipsNLU
 
         [DllImport("snips_nlu_ffi", CallingConvention = CallingConvention.Cdecl)]
         internal static extern unsafe SNIPS_RESULT snips_nlu_engine_create_from_dir
-            ([In, MarshalAs(UnmanagedType.LPStr)] string root_dir, [In,Out] ref IntPtr client);
+            ([In, MarshalAs(UnmanagedType.LPStr)] string root_dir, [In, Out] ref IntPtr client);
 
         [DllImport("snips_nlu_ffi", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern unsafe SNIPS_RESULT snips_nlu_engine_get_model_version([Out] void** version);
+        internal static extern unsafe SNIPS_RESULT snips_nlu_engine_get_model_version([In, Out] ref IntPtr version);
 
     }
 }
