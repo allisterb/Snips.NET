@@ -9,7 +9,7 @@ namespace SnipsNLU.Tests
         [Fact]
         public void CanCreateEngine()
         {
-            Assert.True(SnipsApi.CreateEngineFromDir("foo"));
+            Assert.True(SnipsApi.CreateEngineFromDir(@"C:\Projects\Snips.NET\ext\snips-nlu-rs\data\tests\models\nlu_engine"));
         }
     }
 }

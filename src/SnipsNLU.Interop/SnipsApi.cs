@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using static SnipsNLU.ffi;
@@ -10,9 +11,9 @@ namespace SnipsNLU
     {
         public unsafe static bool CreateEngineFromDir(string rootDir)
         {
-            void** ptr = (void**) IntPtr.Zero;
-            SNIPS_RESULT r = ffi.snips_nlu_engine_create_from_dir(rootDir, ptr);
-            return false;
+            IntPtr _ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)));
+            SNIPS_RESULT r = ffi.snips_nlu_engine_create_from_dir(rootDir, ref _ptr);
+            return true;
         }
     }
 }
